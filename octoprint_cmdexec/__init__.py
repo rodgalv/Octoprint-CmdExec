@@ -19,6 +19,7 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
     def get_settings_defaults(self):
         return dict(
             command="",
+            command_off="",
             icon="f120",
             tooltip="Execute the command"
         )
