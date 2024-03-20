@@ -16,6 +16,17 @@ $(function() {
                 contentType: "application/json; charset=UTF-8"
             })
         };
+        self.executeCommand_off = function() {
+            $.ajax({
+                url: API_BASEURL + "plugin/cmdexec",
+                type: "POST",
+                dataType: "json",
+                data: JSON.stringify({
+                    command: "execute_off"
+                }),
+                contentType: "application/json; charset=UTF-8"
+            })
+        };
     }
 
     ADDITIONAL_VIEWMODELS.push([
