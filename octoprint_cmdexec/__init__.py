@@ -53,6 +53,9 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
 
     def execute(self):
         subprocess.Popen(self._settings.get(["command"]), shell=True)
+    
+    def execute_off(self):
+        subprocess.Popen(self._settings.get(["command_off"]), shell=True)
 
     def on_api_command(self, command, data):
         if not Permissions.ADMIN.can():
@@ -60,6 +63,8 @@ class CmdExecPlugin(octoprint.plugin.StartupPlugin,
 
         if command == "execute":
             self.execute()
+        if command == "execute_off":
+            self.execute_off()
         pass
 
     def get_assets(self):
