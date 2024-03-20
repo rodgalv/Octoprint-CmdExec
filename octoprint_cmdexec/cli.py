@@ -31,3 +31,12 @@ def commands(cli_group, pass_octoprint_ctx, *args, **kwargs):
             click.echo("ok")
 
     return [execute_command]
+    
+    @click.command_off("execute_off")
+    def execute_command(apikey, host, port, httpuser, httppass, https, prefix):
+        r = api_command("execute_off", apikey, host, port, httpuser, httppass, https, prefix)
+
+        if r.status_code in [200, 204]:
+            click.echo("ok")
+
+    return [execute_command]
